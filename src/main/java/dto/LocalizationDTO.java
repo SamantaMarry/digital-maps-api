@@ -1,4 +1,4 @@
-package com.digitalmaps.api.dto;
+package dto;
 
 
 import lombok.AllArgsConstructor;
@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LocalizationDTO {
 
+    private String id;
     private Integer latitude;
     private Integer longitude;
 

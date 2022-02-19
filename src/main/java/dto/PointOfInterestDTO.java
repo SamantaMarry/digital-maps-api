@@ -1,4 +1,4 @@
-package com.digitalmaps.api.dto;
+package dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
