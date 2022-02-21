@@ -1,21 +1,18 @@
 package service.impl;
 
-import dto.LocalizationDTO;
 import dto.PointOfInterestDTO;
-import entity.Localization;
 import entity.PointOfInterest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.stereotype.Service;
-import repository.LocalizationRepository;
 import repository.PointOfInterestRepository;
-import service.LocalizationService;
 import service.PointOfInterestService;
 
 import java.time.LocalTime;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class PointOfInterestServiceImpl implements PointOfInterestService {
@@ -23,8 +20,6 @@ public class PointOfInterestServiceImpl implements PointOfInterestService {
     @Autowired
     private PointOfInterestRepository pointOfInterestRepository;
 
-
-    private LocalizationService localizationService;
 
 
     @Override
@@ -34,17 +29,24 @@ public class PointOfInterestServiceImpl implements PointOfInterestService {
 
     @Override
     public List<PointOfInterest> findNearest(Point point, Distance distance, LocalTime hours) {
-        return null;
+        return this.pointOfInterestRepository.findByLocationNear(point, distance, hours);
     }
 
     @Override
-    public PointOfInterest save(PointOfInterestDTO pointOfInterestDTO, LocalizationDTO localizationDTO) {
-        PointOfInterest pointOfInterest = PointOfInterest.builder()
+    public PointOfInterest save(PointOfInterestDTO pointOfInterestDTO) {
+        PointOfInterest pointOfInterest =
+                PointOfInterest.builder()
                 .name(pointOfInterestDTO.getName())
                 .opened(pointOfInterestDTO.getOpened())
                 .closed(pointOfInterestDTO.getClosed())
+                .location(new GeoJsonPoint(Double.valueOf(pointOfInterestDTO.getLatitude()),
+                                Double.valueOf(pointOfInterestDTO.getLongitude())))
+
                 .build();
         return pointOfInterestRepository.save(pointOfInterest);
+
+
+
 
 
     }

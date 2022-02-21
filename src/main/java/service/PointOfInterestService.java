@@ -1,6 +1,5 @@
 package service;
 
-import dto.LocalizationDTO;
 import dto.PointOfInterestDTO;
 import entity.PointOfInterest;
 import org.springframework.data.geo.Distance;
@@ -15,6 +14,6 @@ public interface PointOfInterestService {
 
     public List<PointOfInterest> findNearest(Point point, Distance distance, LocalTime hours);
 
-    public PointOfInterest save (PointOfInterestDTO pointOfInterestDTO, LocalizationDTO localizationDTO);
+    public PointOfInterest save (PointOfInterestDTO pointOfInterestDTO);
 
 }
