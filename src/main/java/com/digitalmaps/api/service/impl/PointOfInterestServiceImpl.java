@@ -1,20 +1,22 @@
-package service.impl;
+package com.digitalmaps.api.service.impl;
 
-import dto.PointOfInterestDTO;
-import entity.PointOfInterest;
+import com.digitalmaps.api.dto.PointOfInterestDTO;
+import com.digitalmaps.api.entity.PointOfInterest;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;
 import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
 import org.springframework.stereotype.Service;
-import repository.PointOfInterestRepository;
-import service.PointOfInterestService;
+import com.digitalmaps.api.repository.PointOfInterestRepository;
+import com.digitalmaps.api.service.PointOfInterestService;
 
 import java.time.LocalTime;
 import java.util.List;
-import java.util.Objects;
+
 
 @Service
+@AllArgsConstructor
 public class PointOfInterestServiceImpl implements PointOfInterestService {
 
     @Autowired
@@ -39,8 +41,9 @@ public class PointOfInterestServiceImpl implements PointOfInterestService {
                 .name(pointOfInterestDTO.getName())
                 .opened(pointOfInterestDTO.getOpened())
                 .closed(pointOfInterestDTO.getClosed())
-                .location(new GeoJsonPoint(Double.valueOf(pointOfInterestDTO.getLatitude()),
-                                Double.valueOf(pointOfInterestDTO.getLongitude())))
+                .location(new GeoJsonPoint
+                        (Double.valueOf(pointOfInterestDTO.getLatitude()),
+                         Double.valueOf(pointOfInterestDTO.getLongitude())))
 
                 .build();
         return pointOfInterestRepository.save(pointOfInterest);

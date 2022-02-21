@@ -1,4 +1,4 @@
-package entity;
+package com.digitalmaps.api.entity;
 
 
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ import java.time.LocalTime;
 
 @Data
 @Builder
-@Document
+@Document("digitalMaps")
 @NoArgsConstructor
 @AllArgsConstructor
 public class PointOfInterest {

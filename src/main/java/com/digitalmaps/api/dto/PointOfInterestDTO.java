@@ -1,13 +1,10 @@
-package dto;
+package com.digitalmaps.api.dto;
 
-import entity.PointOfInterest;
+import com.digitalmaps.api.entity.PointOfInterest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.geo.GeoJsonPoint;
-import org.springframework.data.mongodb.core.index.GeoSpatialIndexType;
-import org.springframework.data.mongodb.core.index.GeoSpatialIndexed;
 
 import java.time.LocalTime;
 import java.util.Objects;

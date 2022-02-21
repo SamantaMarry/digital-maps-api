@@ -1,6 +1,6 @@
-package repository;
+package com.digitalmaps.api.repository;
 
-import entity.PointOfInterest;
+import com.digitalmaps.api.entity.PointOfInterest;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;
 import org.springframework.data.mongodb.repository.MongoRepository;

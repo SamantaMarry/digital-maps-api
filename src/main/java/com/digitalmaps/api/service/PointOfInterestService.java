@@ -1,7 +1,7 @@
-package service;
+package com.digitalmaps.api.service;
 
-import dto.PointOfInterestDTO;
-import entity.PointOfInterest;
+import com.digitalmaps.api.dto.PointOfInterestDTO;
+import com.digitalmaps.api.entity.PointOfInterest;
 import org.springframework.data.geo.Distance;
 import org.springframework.data.geo.Point;
 
