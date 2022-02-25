@@ -1,22 +1,23 @@
-package com.digitalmaps.api.dto;
+package com.digitalmaps.api.request;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalTime;
 
-@Data
-@Builder (toBuilder = true)
+@Getter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PointOfInterestDTO {
-    private String id;
+public class PointOfInterestRequest {
+
     private String name;
-    private LocalTime opened;
-    private LocalTime closed;
-    private Boolean isOpened;
     private Integer latitude;
     private Integer longitude;
+    private LocalTime opened;
+    private LocalTime closed;
 }
+
